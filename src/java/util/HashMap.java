@@ -923,7 +923,7 @@ public class HashMap<K, V>
      * 为key和value在指定的bucket中创建一个新的节点，扩容也在这个方法里进行.
      */
     void addEntry(int hash, K key, V value, int bucketIndex) {
-        //如果table实际大小size是否达到阀值threshold 并且 i桶中是否为空 来判断是否要扩容
+        //如果table实际大小size是否达到阀值threshold 并且 本次保存是否hash碰撞 来判断是否要扩容
         if ((size >= threshold) && (null != table[bucketIndex])) {
             //进行扩容 capacity * 2，并重新计算key的桶坐标
             resize(2 * table.length);
